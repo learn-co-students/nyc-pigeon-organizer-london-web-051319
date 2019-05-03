@@ -5,7 +5,6 @@ return ["Theo", "Peter Jr.", "Lucky", "Queenie", "Andrew", "Ms. K", "Alex"]
 end
 
 def nyc_pigeon_organizer(data) # data == pigeon_data
-  # write your code here!
   name_array
   pigeon_list = {}
   name_array.each do |name|
@@ -15,38 +14,12 @@ def nyc_pigeon_organizer(data) # data == pigeon_data
     data.each do |attribute, detail|
       data[attribute].each do |detail, pigeon|
         data[attribute][detail].each do |pigeon|
-          pigeon == name
-          pigeon_list[pigeon][attribute] << detail.to_s
-        # puts true
+          if pigeon == name # got local loops before final end because the if was missing - watch out for this 
+            pigeon_list[pigeon][attribute] << detail.to_s # remembering to change the symbol to a string
+          end
         end
       end
     end
-  binding.pry
   end
+  pigeon_list
 end
-
-# def nyc_pigeon_organizer(data) # data == pigeon_data
-#   # write your code here!
-#   name_array
-#   pigeon_list = {}
-#   name_array.each do |name|
-#     pigeon_list[name] = {color:[], gender:[], lives:[]}
-#     data.each do |attribute, detail|
-#       data[attribute].each do |detail, pigeon|
-#         data[attribute][detail].each do |pigeon|
-#           pigeon == name
-#           pigeon_list[pigeon][attribute] << detail.to_s
-#           # puts true
-#           binding.pry
-#         end
-#       end
-#     end
-#   end
-# end
-
-# WORKS - adds names and structure to new hash
-# name_array
-# pigeon_list = {}
-# name_array.each do |name|
-#   pigeon_list[name] = {color:{}, gender:{}, lives:{}}
-# end
